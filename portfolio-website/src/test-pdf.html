@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+        button, a {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover, a:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test d'ouverture du PDF TIPE</h1>
+    
+    <h2>Méthode 1 : Lien avec ./assets/</h2>
+    <a href="./assets/TIPE_KAM_Mathis.pdf" target="_blank">Ouvrir avec ./assets/</a>
+    
+    <h2>Méthode 2 : Lien avec assets/</h2>
+    <a href="assets/TIPE_KAM_Mathis.pdf" target="_blank">Ouvrir avec assets/</a>
+    
+    <h2>Méthode 3 : Bouton JavaScript</h2>
+    <button onclick="window.open('assets/TIPE_KAM_Mathis.pdf', '_blank')">Ouvrir avec JavaScript</button>
+    
+    <h2>Méthode 4 : Lien direct</h2>
+    <a href="assets/TIPE_KAM_Mathis.pdf" target="_blank" rel="noopener noreferrer">Lien direct</a>
+    
+    <hr>
+    <p>Vérifiez dans la console (F12) s'il y a des erreurs.</p>
+</body>
+</html>

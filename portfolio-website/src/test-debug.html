@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Portfolio - Hover Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-panel { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        button { background: #007acc; color: white; padding: 10px 15px; border: none; border-radius: 5px; margin: 5px; cursor: pointer; }
+        button:hover { background: #005c94; }
+        #log { background: white; padding: 10px; border: 1px solid #ddd; border-radius: 4px; height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>🐛 Debug - Événements Hover du Portfolio</h1>
+    
+    <div class="debug-panel">
+        <h3>Tests de debug :</h3>
+        <button onclick="openPortfolio()">Ouvrir Portfolio</button>
+        <button onclick="checkEvents()">Vérifier les événements</button>
+        <button onclick="forceEvents()">Forcer les événements</button>
+        <button onclick="clearLog()">Vider le log</button>
+    </div>
+    
+    <div class="debug-panel">
+        <h3>Console :</h3>
+        <div id="log">Cliquez sur "Ouvrir Portfolio" puis "Vérifier les événements"...</div>
+    </div>
+    
+    <div class="debug-panel">
+        <h3>Instructions :</h3>
+        <ol>
+            <li>Ouvrez le portfolio dans un nouvel onglet</li>
+            <li>Revenez ici et cliquez "Vérifier les événements"</li>
+            <li>Si aucun événement n'est détecté, cliquez "Forcer les événements"</li>
+            <li>Testez ensuite les animations dans le portfolio</li>
+        </ol>
+    </div>
+
+    <script>
+        let portfolioWindow = null;
+        
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.innerHTML += new Date().toLocaleTimeString() + ' - ' + message + '\n';
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+        
+        function openPortfolio() {
+            portfolioWindow = window.open('index.html', 'portfolio');
+            log('Portfolio ouvert dans un nouvel onglet');
+        }
+        
+        function checkEvents() {
+            if (!portfolioWindow) {
+                log('❌ Portfolio non ouvert. Cliquez d\'abord sur "Ouvrir Portfolio"');
+                return;
+            }
+            
+            try {
+                const activities = portfolioWindow.document.querySelectorAll('.activity');
+                log(`📋 ${activities.length} activités trouvées`);
+                
+                activities.forEach((el, i) => {
+                    const hasHoverForced = el.hasAttribute('data-hover-forced');
+                    const icon = el.querySelector('.activity-icon');
+                    const hasTransition = icon && icon.style.transition;
+                    const activityName = el.querySelector('p')?.textContent || `activité-${i}`;
+                    
+                    log(`[${i}] ${activityName}: hover=${hasHoverForced ? 'OUI' : 'NON'}, styles=${hasTransition ? 'OUI' : 'NON'}`);
+                });
+                
+                const readyState = portfolioWindow.document.readyState;
+                log(`État du DOM: ${readyState}`);
+                
+            } catch (e) {
+                log(`❌ Erreur: ${e.message}`);
+            }
+        }
+        
+        function forceEvents() {
+            if (!portfolioWindow) {
+                log('❌ Portfolio non ouvert');
+                return;
+            }
+            
+            try {
+                const activities = portfolioWindow.document.querySelectorAll('.activity');
+                log(`🔧 Forçage des événements sur ${activities.length} activités...`);
+                
+                activities.forEach((el, index) => {
+                    const icon = el.querySelector('.activity-icon');
+                    if (icon) {
+                        // Appliquer styles directement sans clonage
+                        icon.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                        icon.style.transformOrigin = 'center center';
+                        icon.style.transform = 'rotate(0deg) scale(1)';
+                        icon.style.display = 'flex';
+                        icon.style.alignItems = 'center';
+                        icon.style.justifyContent = 'center';
+                        
+                        // Ajouter événements directement (sans supprimer les anciens)
+                        if (!el.hasAttribute('data-debug-forced')) {
+                            el.addEventListener('mouseenter', function() {
+                                const activityIcon = this.querySelector('.activity-icon');
+                                if (activityIcon) {
+                                    activityIcon.style.transform = 'rotate(360deg) scale(1.1)';
+                                    log(`🌟 Animation START: ${this.querySelector('p')?.textContent}`);
+                                }
+                            });
+                            
+                            el.addEventListener('mouseleave', function() {
+                                const activityIcon = this.querySelector('.activity-icon');
+                                if (activityIcon) {
+                                    activityIcon.style.transform = 'rotate(0deg) scale(1)';
+                                    log(`🌟 Animation END: ${this.querySelector('p')?.textContent}`);
+                                }
+                            });
+                            
+                            el.setAttribute('data-debug-forced', 'true');
+                            log(`✅ Événements forcés pour: ${el.querySelector('p')?.textContent}`);
+                        } else {
+                            log(`⏭️ Événements déjà présents pour: ${el.querySelector('p')?.textContent}`);
+                        }
+                    }
+                });
+                
+            } catch (e) {
+                log(`❌ Erreur lors du forçage: ${e.message}`);
+                log(`❌ Stack: ${e.stack}`);
+            }
+        }
+    </script>
+</body>
+</html>
