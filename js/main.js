@@ -398,9 +398,10 @@ function Welcome() {
                         <a href="./assets/${cvFile}" target="_blank" class="cv-button enhanced-hover">
                             <i class="fas fa-file-pdf"></i> ${t.viewCV}
                         </a>
-                        <a href="./assets/Elevator_Pitch_Mathis_KAM.mp4" target="_blank" class="pitch-button enhanced-hover">
+                        <!-- Replaced direct video file link with an embedded YouTube player (opens modal) -->
+                        <button id="open-pitch" class="pitch-button enhanced-hover" type="button" aria-haspopup="dialog" aria-controls="video-modal">
                             <i class="fas fa-video"></i> ${t.elevatorPitch}
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="profile-container" data-aos="fade-left" data-aos-delay="400">
@@ -801,6 +802,46 @@ function render() {
             
         }, 500);
     }, 300);
+
+    // Elevator pitch / YouTube modal binding
+    try {
+        const pitchBtn = document.getElementById('open-pitch');
+        if (pitchBtn) {
+            pitchBtn.addEventListener('click', () => {
+                // If modal already exists, don't recreate
+                if (document.getElementById('video-modal')) return;
+
+                const modal = document.createElement('div');
+                modal.id = 'video-modal';
+                modal.className = 'video-modal';
+                // YouTube embed (responsive)
+                modal.innerHTML = `
+                    <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Elevator Pitch video">
+                        <button class="video-modal-close" aria-label="Close video">&times;</button>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/a_z_aIgmufc?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                `;
+
+                document.body.appendChild(modal);
+                document.body.classList.add('modal-open');
+
+                const closeBtn = modal.querySelector('.video-modal-close');
+                const closeModal = () => {
+                    // remove modal and restore scrolling
+                    modal.remove();
+                    document.body.classList.remove('modal-open');
+                };
+
+                closeBtn?.addEventListener('click', closeModal);
+                // Clicking the overlay closes
+                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+            });
+        }
+    } catch (err) {
+        console.error('Error initializing pitch modal:', err);
+    }
 }
 
 // Scroll animations
