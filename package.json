@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio moderne et responsive pour Mathis KAM - Étudiant ingénieur en Sciences du Numérique à l'ENSEEIHT Toulouse",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npx live-server src --port=8080",
+    "dev": "npx live-server src --port=8080"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "engineering",
+    "responsive",
+    "vanilla-js"
+  ],
+  "author": "Mathis KAM",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

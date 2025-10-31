@@ -1,0 +1,801 @@
+// Translations
+const translations = {
+    fr: {
+        nav: {
+            welcome: 'Accueil',
+            engineering: 'Formation',
+            technical: 'Compétences',
+            mobility: 'Mobilité',
+            sustainability: 'Engagement',
+            activities: "Centres d'intérêt",
+            projects: 'Projets',
+            contact: 'Contact'
+        },
+        welcome: {
+            title: 'MATHIS KAM',
+            subtitle: "Futur ingénieur en sciences du numérique à l'ENSEEIHT (Toulouse)",
+            viewCV: 'Voir mon CV'
+        },
+        engineering: {
+            title: "Formation d'ingénieur",
+            courses: [
+                {
+                    name: 'Programming',
+                    description: 'Maîtrise de C, Python, ADA, et développement logiciel.',
+                    icon: 'fa-code'
+                },
+                {
+                    name: 'Mathématiques appliquées',
+                    description: 'Analyse numérique, algèbre linéaire, optimisation.',
+                    icon: 'fa-calculator'
+                },
+                {
+                    name: 'Data & IA',
+                    description: 'Machine Learning, traitement de données, deep learning.',
+                    icon: 'fa-brain'
+                },
+                {
+                    name: 'Modélisation & Simulation',
+                    description: 'Systèmes complexes, simulation numérique, calcul scientifique.',
+                    icon: 'fa-cube'
+                }
+            ]
+        },
+        technical: {
+            title: 'Compétences techniques',
+            categories: [
+                {
+                    name: 'Programming & Development',
+                    skills: [
+                        { name: 'Python', icon: 'fa-brands fa-python', color: '#3776ab' },
+                        { name: 'ADA', icon: 'fa-solid fa-code', color: '#02f88c' },
+                        { name: 'SQL', icon: 'fa-solid fa-database', color: '#f29111' },
+                        { name: 'HTML', icon: 'fa-brands fa-html5', color: '#e34f26' },
+                        { name: 'CSS', icon: 'fa-brands fa-css3-alt', color: '#1572b6' },
+                        { name: 'JavaScript', icon: 'fa-brands fa-js', color: '#f7df1e' }
+                    ]
+                },
+                {
+                    name: 'Data & Engineering Tools',
+                    skills: [
+                        { name: 'NumPy', icon: 'fa-solid fa-chart-line', color: '#013243' },
+                        { name: 'Pandas', icon: 'fa-solid fa-table', color: '#150458' },
+                        { name: 'MATLAB', icon: 'fa-solid fa-wave-square', color: '#e16737' },
+                        { name: 'Simulink', icon: 'fa-solid fa-project-diagram', color: '#0076a8' },
+                        { name: 'SOLIDWORKS', icon: 'fa-solid fa-cube', color: '#FF0000' }
+                    ]
+                },
+                {
+                    name: 'Tools & Productivity',
+                    skills: [
+                        { name: 'Microsoft Office', icon: 'fa-brands fa-microsoft', color: '#0078d4' },
+                        { name: 'GitHub', icon: 'fa-brands fa-github', color: '#333' },
+                        { name: 'GitLab', icon: 'fa-brands fa-gitlab', color: '#fc6d26' },
+                        { name: 'VS Code', icon: 'fa-solid fa-code', color: '#007acc' },
+                        { name: 'LaTeX', icon: 'fa-solid fa-file-code', color: '#008080' }
+                    ]
+                },
+                {
+                    name: 'Operating Systems',
+                    skills: [
+                        { name: 'Windows', icon: 'fa-brands fa-windows', color: '#0078d6' },
+                        { name: 'Linux', icon: 'fa-brands fa-linux', color: '#fcc624' },
+                        { name: 'MacOS', icon: 'fa-brands fa-apple', color: '#000000' }
+                    ]
+                }
+            ]
+        },
+        mobility: {
+            title: 'Mobilité internationale',
+            text: 'Destinations que je souhaite viser pour mes futures expériences de mobilité internationale.',
+            destinations: [
+                {
+                    name: 'Polytechnique Montréal',
+                    country: 'Canada 🇨🇦',
+                    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Polytechnique_Montr%C3%A9al_logo.svg/200px-Polytechnique_Montr%C3%A9al_logo.svg.png',
+                    tagline: 'Destination cible pour une future mobilité internationale.'
+                },
+                {
+                    name: 'Georgia Tech',
+                    country: 'États-Unis 🇺🇸',
+                    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Georgia_Tech_seal.svg/150px-Georgia_Tech_seal.svg.png',
+                    tagline: 'Destination cible pour une future mobilité internationale.'
+                },
+                {
+                    name: 'Cranfield University',
+                    country: 'Royaume-Uni 🇬🇧',
+                    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Cranfield_University_Logo.svg/200px-Cranfield_University_Logo.svg.png',
+                    tagline: 'Destination cible pour une future mobilité internationale.'
+                }
+            ]
+        },
+        sustainability: {
+            title: 'Engagement durable',
+            text: 'Solutions technologiques durables et responsables, intégrant les enjeux environnementaux.'
+        },
+        activities: {
+            title: "Centres d'intérêt",
+            list: [
+                { name: 'Musculation', icon: 'fa-dumbbell' },
+                { name: 'Football', icon: 'fa-futbol' },
+                { name: 'Tennis', icon: 'fa-solid fa-baseball' },
+                { name: 'Gaming', icon: 'fa-gamepad' },
+                { name: 'Spatial', icon: 'fa-rocket' },
+                { name: 'IA', icon: 'fa-brain' }
+            ]
+        },
+        projects: {
+            title: 'Projets',
+            list: [
+                {
+                    title: 'TIPE',
+                    subtitle: 'Simulation numérique',
+                    description: 'Projet de recherche en modélisation mathématique et simulation numérique.',
+                    pdf: 'TIPE_KAM_Mathis.pdf',
+                    button: 'Voir le PDF'
+                },
+                {
+                    title: 'Astre Launch',
+                    subtitle: 'Projet spatial',
+                    description: 'Développement et conception de systèmes pour le lancement spatial.',
+                    link: '#',
+                    button: 'En savoir plus'
+                }
+            ]
+        },
+        contact: {
+            title: 'Contact'
+        }
+    },
+    en: {
+        nav: {
+            welcome: 'Home',
+            engineering: 'Engineering',
+            technical: 'Skills',
+            mobility: 'Mobility',
+            sustainability: 'Sustainability',
+            activities: 'Activities',
+            projects: 'Projects',
+            contact: 'Contact'
+        },
+        welcome: {
+            title: 'MATHIS KAM',
+            subtitle: 'Future engineer in digital sciences at ENSEEIHT (Toulouse)',
+            viewCV: 'View My CV'
+        },
+        engineering: {
+            title: 'Engineering Courses',
+            courses: [
+                {
+                    name: 'Programming',
+                    description: 'Mastery of C, Python, ADA, and software development.',
+                    icon: 'fa-code'
+                },
+                {
+                    name: 'Applied Mathematics',
+                    description: 'Numerical analysis, linear algebra, optimization.',
+                    icon: 'fa-calculator'
+                },
+                {
+                    name: 'Data & AI',
+                    description: 'Machine Learning, data processing, deep learning.',
+                    icon: 'fa-brain'
+                },
+                {
+                    name: 'Modeling & Simulation',
+                    description: 'Complex systems, numerical simulation, scientific computing.',
+                    icon: 'fa-cube'
+                }
+            ]
+        },
+        technical: {
+            title: 'Technical Highlights',
+            categories: [
+                {
+                    name: 'Programming & Development',
+                    skills: [
+                        { name: 'Python', icon: 'fa-brands fa-python', color: '#3776ab' },
+                        { name: 'ADA', icon: 'fa-solid fa-code', color: '#02f88c' },
+                        { name: 'SQL', icon: 'fa-solid fa-database', color: '#f29111' },
+                        { name: 'HTML', icon: 'fa-brands fa-html5', color: '#e34f26' },
+                        { name: 'CSS', icon: 'fa-brands fa-css3-alt', color: '#1572b6' },
+                        { name: 'JavaScript', icon: 'fa-brands fa-js', color: '#f7df1e' }
+                    ]
+                },
+                {
+                    name: 'Data & Engineering Tools',
+                    skills: [
+                        { name: 'NumPy', icon: 'fa-solid fa-chart-line', color: '#013243' },
+                        { name: 'Pandas', icon: 'fa-solid fa-table', color: '#150458' },
+                        { name: 'MATLAB', icon: 'fa-solid fa-wave-square', color: '#e16737' },
+                        { name: 'Simulink', icon: 'fa-solid fa-project-diagram', color: '#0076a8' },
+                        { name: 'SOLIDWORKS', icon: 'fa-solid fa-cube', color: '#FF0000' }
+                    ]
+                },
+                {
+                    name: 'Tools & Productivity',
+                    skills: [
+                        { name: 'Microsoft Office', icon: 'fa-brands fa-microsoft', color: '#0078d4' },
+                        { name: 'GitHub', icon: 'fa-brands fa-github', color: '#333' },
+                        { name: 'GitLab', icon: 'fa-brands fa-gitlab', color: '#fc6d26' },
+                        { name: 'VS Code', icon: 'fa-solid fa-code', color: '#007acc' },
+                        { name: 'LaTeX', icon: 'fa-solid fa-file-code', color: '#008080' }
+                    ]
+                },
+                {
+                    name: 'Operating Systems',
+                    skills: [
+                        { name: 'Windows', icon: 'fa-brands fa-windows', color: '#0078d6' },
+                        { name: 'Linux', icon: 'fa-brands fa-linux', color: '#fcc624' },
+                        { name: 'MacOS', icon: 'fa-brands fa-apple', color: '#000000' }
+                    ]
+                }
+            ]
+        },
+        mobility: {
+            title: 'International Mobility',
+            text: 'Target destinations for future international mobility experiences.',
+            destinations: [
+                {
+                    name: 'Polytechnique Montréal',
+                    country: 'Canada 🇨🇦',
+                    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Polytechnique_Montr%C3%A9al_logo.svg/200px-Polytechnique_Montr%C3%A9al_logo.svg.png',
+                    tagline: 'Target destination for future international mobility.'
+                },
+                {
+                    name: 'Georgia Tech',
+                    country: 'United States 🇺🇸',
+                    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Georgia_Tech_seal.svg/150px-Georgia_Tech_seal.svg.png',
+                    tagline: 'Target destination for future international mobility.'
+                },
+                {
+                    name: 'Cranfield University',
+                    country: 'United Kingdom 🇬🇧',
+                    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Cranfield_University_Logo.svg/200px-Cranfield_University_Logo.svg.png',
+                    tagline: 'Target destination for future international mobility.'
+                }
+            ]
+        },
+        sustainability: {
+            title: 'Sustainability',
+            text: 'Sustainable and responsible technological solutions, integrating environmental challenges.'
+        },
+        activities: {
+            title: 'Activities',
+            list: [
+                { name: 'Strength Training', icon: 'fa-dumbbell' },
+                { name: 'Football', icon: 'fa-futbol' },
+                { name: 'Tennis', icon: 'fa-solid fa-baseball' },
+                { name: 'Gaming', icon: 'fa-gamepad' },
+                { name: 'Space', icon: 'fa-rocket' },
+                { name: 'AI', icon: 'fa-brain' }
+            ]
+        },
+        projects: {
+            title: 'Projects',
+            list: [
+                {
+                    title: 'TIPE',
+                    subtitle: 'Numerical Simulation',
+                    description: 'Research project in mathematical modeling and numerical simulation.',
+                    pdf: 'TIPE_KAM_Mathis.pdf',
+                    button: 'View PDF'
+                },
+                {
+                    title: 'Astre Launch',
+                    subtitle: 'Space Project',
+                    description: 'Development and design of systems for space launch.',
+                    link: '#',
+                    button: 'Learn more'
+                }
+            ]
+        },
+        contact: {
+            title: 'Contact'
+        }
+    }
+};
+
+let currentLang = 'fr'; // Démarrer en français par défaut
+
+// Header Component
+function Header() {
+    const t = translations[currentLang].nav;
+    return `
+        <header id="main-header">
+            <div class="header-left">
+                <img src="./assets/images/PHOTO_CV_CLAIR.png" alt="MATHIS KAM" class="header-photo hover-grow" id="header-photo">
+                <span class="header-name">MATHIS KAM</span>
+            </div>
+            <nav>
+                <a href="#welcome" class="enhanced-hover">${t.welcome}</a>
+                <a href="#engineering" class="enhanced-hover">${t.engineering}</a>
+                <a href="#mobility" class="enhanced-hover">${t.mobility}</a>
+                <a href="#sustainability" class="enhanced-hover">${t.sustainability}</a>
+                <a href="#activities" class="enhanced-hover">${t.activities}</a>
+                <a href="#projects" class="enhanced-hover">${t.projects}</a>
+                <a href="#contact" class="enhanced-hover">${t.contact}</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-selector">
+                    <button class="lang-option ${currentLang === 'fr' ? 'active' : ''}" data-lang="fr">FR</button>
+                    <div class="lang-divider"></div>
+                    <button class="lang-option ${currentLang === 'en' ? 'active' : ''}" data-lang="en">EN</button>
+                </div>
+            </div>
+        </header>
+    `;
+}
+
+// Welcome Component - Style propre sans effets néon
+function Welcome() {
+    const t = translations[currentLang].welcome;
+    return `
+        <section id="welcome" class="welcome-section parallax-element">
+            <div class="welcome-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="welcome-text">
+                    <h1>${t.title}</h1>
+                    <p class="subtitle" data-aos="fade-up" data-aos-delay="300">${t.subtitle}</p>
+                    <a href="./assets/documents/CV_MATHIS_KAM.pdf" target="_blank" class="cv-button enhanced-hover" data-aos="fade-up" data-aos-delay="600">${t.viewCV}</a>
+                </div>
+                <div class="profile-container" data-aos="fade-left" data-aos-delay="400">
+                    <div class="profile-glow"></div>
+                    <img src="./assets/images/PHOTO_CV_CLAIR.png" alt="MATHIS KAM" class="profile-image hover-grow">
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+// Engineering Component
+function Engineering() {
+    const t = translations[currentLang].engineering;
+    return `
+        <section id="engineering" class="section" data-aos="fade-up">
+            <h2 data-aos="fade-up">${t.title}</h2>
+            <div class="courses">
+                ${t.courses.map((course, index) => `
+                    <div class="course-block glass-card enhanced-hover tilt-card" data-aos="flip-left" data-aos-delay="${index * 150}">
+                        <div class="course-icon">
+                            <i class="fa-solid ${course.icon}"></i>
+                        </div>
+                        <h3>${course.name}</h3>
+                        <p>${course.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+// Technical Component - Nouvelle structure par catégories
+function Technical() {
+    const t = translations[currentLang].technical;
+    return `
+        <section id="technical" class="section" data-aos="fade-up">
+            <h2 data-aos="zoom-in">${t.title}</h2>
+            <div class="technical-categories">
+                ${t.categories.map((category, categoryIndex) => `
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="${categoryIndex * 200}">
+                        <h3 class="category-title">${category.name}</h3>
+                        <div class="skills-grid">
+                            ${category.skills.map((skill, skillIndex) => `
+                                <div class="skill-item hover-grow micro-bounce" data-aos="zoom-in" data-aos-delay="${(categoryIndex * 200) + (skillIndex * 50)}">
+                                    <div class="skill-icon" style="color: ${skill.color}">
+                                        <i class="${skill.icon}"></i>
+                                    </div>
+                                    <p class="skill-name">${skill.name}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+// Mobility Component
+function Mobility() {
+    const t = translations[currentLang].mobility;
+    return `
+        <section id="mobility" class="section" data-aos="fade-up">
+            <h2 data-aos="fade-up">${t.title}</h2>
+            <p class="section-text" data-aos="fade-up" data-aos-delay="200">${t.text}</p>
+            <div class="mobility-grid">
+                ${t.destinations.map((destination, index) => `
+                    <div class="mobility-card" data-aos="zoom-in" data-aos-delay="${index * 150}">
+                        <div class="mobility-logo">
+                            <img src="${destination.logo}" alt="${destination.name} logo">
+                        </div>
+                        <h3 class="mobility-name">${destination.name}</h3>
+                        <p class="mobility-country">${destination.country}</p>
+                        <p class="mobility-tagline">${destination.tagline}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+// Sustainability Component - Style propre
+function Sustainability() {
+    const t = translations[currentLang].sustainability;
+    return `
+        <section id="sustainability" class="section" data-aos="fade-up">
+            <h2 data-aos="fade-up">${t.title}</h2>
+            <p class="section-text" data-aos="fade-up" data-aos-delay="200">${t.text}</p>
+        </section>
+    `;
+}
+
+// Activities Component
+function Activities() {
+    const t = translations[currentLang].activities;
+    return `
+        <section id="activities" class="section" data-aos="fade-up">
+            <h2 data-aos="flip-up">${t.title}</h2>
+            <div class="activities-list">
+                ${t.list.map((activity, index) => `
+                    <div class="activity glass-card tilt-card enhanced-hover" data-aos="bounce-in" data-aos-delay="${index * 150}">
+                        <div class="activity-icon">
+                            <i class="fa-solid ${activity.icon}"></i>
+                        </div>
+                        <p>${activity.name}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+// Projects Component - Style propre sans dégradés flashy
+function Projects() {
+    const t = translations[currentLang].projects;
+    return `
+        <section id="projects" class="section" data-aos="fade-up">
+            <h2 data-aos="zoom-in">${t.title}</h2>
+            <div class="projects-grid">
+                ${t.list.map((project, index) => `
+                    <div class="project-block glass-card tilt-card enhanced-hover" data-aos="flip-up" data-aos-delay="${index * 200}">
+                        <h3>${project.title}</h3>
+                        <h4>${project.subtitle}</h4>
+                        <p>${project.description}</p>
+                        ${project.pdf ? 
+                            `<a href="assets/${project.pdf}" target="_blank" rel="noopener noreferrer" class="project-button pdf-link">${project.button}</a>` :
+                            `<a href="${project.link}" class="project-button">${project.button}</a>`
+                        }
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+// Contact Component - Style cohérent en FR et EN
+function Contact() {
+    const t = translations[currentLang].contact;
+    const email = 'mathis.kam@etu.inp-n7.fr';
+    const phone = '+33 06 03 46 18 73';
+    const linkedin = 'linkedin.com/in/Mathis-Kam';
+    const github = 'github.com/MathisKAM';
+    
+    return `
+        <section id="contact" class="section contact-section">
+            <h2>${t.title}</h2>
+            <div class="contact-line">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="#" class="email-link" data-email="${email}">${email}</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:${phone.replace(/\s/g, '')}">${phone}</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://${linkedin}" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://${github}" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+// Copy to clipboard function
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Optional: Show a brief notification
+        const notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.textContent = '✓ Copié';
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    });
+}
+
+// Render function
+function render() {
+    const app = document.getElementById('app');
+    app.innerHTML = `
+        ${Header()}
+        ${Welcome()}
+        ${Engineering()}
+        ${Technical()}
+        ${Mobility()}
+        ${Sustainability()}
+        ${Activities()}
+        ${Projects()}
+        ${Contact()}
+    `;
+
+    // Language toggle - nouveau système propre
+    const langOptions = document.querySelectorAll('.lang-option');
+    langOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const newLang = option.dataset.lang;
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                render();
+                initScrollAnimations();
+                
+                // S'assurer que tous les effets visuels sont réappliqués
+                setTimeout(() => {
+                    harmonizeStyles(); // Réappliquer les styles
+                    
+                    // Double refresh pour garantir la synchronisation
+                    setTimeout(() => {
+                        AOS.refresh();
+                        
+                        // Réappliquer les effets modernes (curseur personnalisé désactivé)
+                        if (window.modernEffects) {
+                            window.modernEffects.addGlowEffect('.cv-button, .project-button');
+                            window.modernEffects.addGlassmorphism('.course-block, .activity, .project-block');
+                            // window.modernEffects.refreshCursorEvents(); // DÉSACTIVÉ - Curseur par défaut utilisé
+                        }
+                    }, 100);
+                }, 200);
+            }
+        });
+    });
+
+    // Email click to copy
+    const emailLinks = document.querySelectorAll('.email-link');
+    emailLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = link.dataset.email;
+            copyToClipboard(email);
+        });
+    });
+
+    // PDF links - Force open in new tab
+    const pdfLinks = document.querySelectorAll('.pdf-link');
+    pdfLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pdfUrl = link.getAttribute('href');
+            console.log('Opening PDF:', pdfUrl);
+            window.open(pdfUrl, '_blank');
+        });
+    });
+
+    // Header photo visibility on scroll
+    const headerPhoto = document.getElementById('header-photo');
+    const welcomeSection = document.getElementById('welcome');
+    
+    window.addEventListener('scroll', () => {
+        if (welcomeSection) {
+            const welcomeBottom = welcomeSection.offsetTop + welcomeSection.offsetHeight;
+            if (window.scrollY > welcomeBottom - 100) {
+                headerPhoto.classList.add('visible');
+            } else {
+                headerPhoto.classList.remove('visible');
+            }
+        }
+    });
+
+    // Initialize scroll animations
+    initScrollAnimations();
+    
+    // Harmoniser les styles pour garantir la cohérence
+    harmonizeStyles();
+    
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true,
+        offset: 100,
+        delay: 0
+    });
+}
+
+// Scroll animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Add visible class to child elements
+                const children = entry.target.querySelectorAll('.course-block, .technology, .activity, .project-block, .contact-item');
+                children.forEach(child => child.classList.add('visible'));
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Fonction pour harmoniser le style entre FR et EN
+function harmonizeStyles() {
+    console.log('🎯 Harmonisation des styles et animations...');
+    
+    // ===== SECTIONS PRINCIPALES =====
+    document.querySelectorAll('.course-block').forEach(el => {
+        if (!el.classList.contains('glass-card')) el.classList.add('glass-card');
+        if (!el.classList.contains('enhanced-hover')) el.classList.add('enhanced-hover');
+        
+        // Gestion du tilt selon la langue
+        if (currentLang === 'en') {
+            if (!el.classList.contains('tilt-card')) el.classList.add('tilt-card');
+            el.classList.remove('no-tilt');
+        } else {
+            // Supprimer tilt et forcer immobilité en français
+            el.classList.remove('tilt-card');
+            el.classList.add('no-tilt');
+        }
+    });
+    
+    document.querySelectorAll('.activity').forEach(el => {
+        if (!el.classList.contains('glass-card')) el.classList.add('glass-card');
+        if (!el.classList.contains('enhanced-hover')) el.classList.add('enhanced-hover');
+        
+        // Gestion du tilt selon la langue
+        if (currentLang === 'en') {
+            if (!el.classList.contains('tilt-card')) el.classList.add('tilt-card');
+            el.classList.remove('no-tilt');
+        } else {
+            // Supprimer tilt et forcer immobilité en français
+            el.classList.remove('tilt-card');
+            el.classList.add('no-tilt');
+        }
+    });
+    
+    document.querySelectorAll('.project-block').forEach(el => {
+        if (!el.classList.contains('glass-card')) el.classList.add('glass-card');
+        if (!el.classList.contains('enhanced-hover')) el.classList.add('enhanced-hover');
+        
+        // Gestion du tilt selon la langue
+        if (currentLang === 'en') {
+            if (!el.classList.contains('tilt-card')) el.classList.add('tilt-card');
+            el.classList.remove('no-tilt');
+        } else {
+            // Supprimer tilt et forcer immobilité en français
+            el.classList.remove('tilt-card');
+            el.classList.add('no-tilt');
+        }
+    });
+    
+    // ===== COMPÉTENCES TECHNIQUES - SYNCHRONISATION COMPLÈTE =====
+    document.querySelectorAll('.skill-item').forEach(el => {
+        // Ajouter toutes les classes nécessaires
+        if (!el.classList.contains('hover-grow')) el.classList.add('hover-grow');
+        if (!el.classList.contains('micro-bounce')) el.classList.add('micro-bounce');
+        if (!el.classList.contains('enhanced-hover')) el.classList.add('enhanced-hover');
+        
+        // Forcer les attributs AOS pour garantir les animations
+        if (!el.hasAttribute('data-aos')) {
+            el.setAttribute('data-aos', 'zoom-in');
+        }
+    });
+    
+    document.querySelectorAll('.skill-category').forEach((el, index) => {
+        if (!el.classList.contains('glass-card')) el.classList.add('glass-card');
+        
+        // Synchroniser les délais d'animation AOS
+        if (!el.hasAttribute('data-aos')) {
+            el.setAttribute('data-aos', 'fade-up');
+            el.setAttribute('data-aos-delay', (index * 150).toString());
+        }
+    });
+    
+    // ===== ICÔNES - ANIMATIONS DE ROTATION UNIVERSELLES =====
+    document.querySelectorAll('.skill-icon').forEach(el => {
+        // Forcer les styles de transition pour garantir l'animation de rotation
+        el.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transformOrigin = 'center center';
+    });
+    
+    document.querySelectorAll('.activity-icon').forEach(el => {
+        // Forcer les styles de transition pour garantir l'animation de rotation
+        el.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transformOrigin = 'center center';
+        // S'assurer que l'icône peut tourner
+        el.style.display = 'flex';
+        el.style.alignItems = 'center';
+        el.style.justifyContent = 'center';
+    });
+    
+    // ===== ICÔNES FORMATION (course-block icons) =====
+    document.querySelectorAll('.course-block i').forEach(el => {
+        // S'assurer que les icônes de formation ont aussi des animations
+        el.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transformOrigin = 'center center';
+    });
+    
+    // ===== FORCER LA RÉAPPLICATION DES ÉVÉNEMENTS HOVER POUR ACTIVITÉS =====
+    document.querySelectorAll('.activity').forEach(el => {
+        // Supprimer les anciens événements pour éviter les doublons
+        el.replaceWith(el.cloneNode(true));
+    });
+    
+    // Réappliquer les événements sur les nouveaux éléments
+    document.querySelectorAll('.activity').forEach((el, index) => {
+        const icon = el.querySelector('.activity-icon');
+        if (icon) {
+            // Forcer les styles de base
+            icon.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            icon.style.transformOrigin = 'center center';
+            icon.style.transform = 'rotate(0deg) scale(1)';
+            
+            // Ajouter les événements hover avec classes CSS
+            el.addEventListener('mouseenter', function() {
+                const activityIcon = this.querySelector('.activity-icon');
+                if (activityIcon) {
+                    activityIcon.classList.add('js-hover');
+                    activityIcon.style.transform = 'rotate(360deg) scale(1.1)';
+                }
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                const activityIcon = this.querySelector('.activity-icon');
+                if (activityIcon) {
+                    activityIcon.classList.remove('js-hover');
+                    activityIcon.style.transform = 'rotate(0deg) scale(1)';
+                }
+            });
+            
+            console.log(`🎯 Activité ${index} préparée avec événements hover`);
+        }
+    });
+    
+    // ===== BOUTONS ET ÉLÉMENTS INTERACTIFS =====
+    document.querySelectorAll('.cv-button, .project-button').forEach(el => {
+        if (!el.classList.contains('enhanced-hover')) el.classList.add('enhanced-hover');
+    });
+    
+    // ===== FORCE AOS REFRESH =====
+    setTimeout(() => {
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+        
+        // DOUBLE-CHECK: Réappliquer les animations d'activités après AOS
+        document.querySelectorAll('.activity-icon').forEach((icon, index) => {
+            icon.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            icon.style.transformOrigin = 'center center';
+            console.log(`🔄 Icône activité ${index} préparée pour rotation`);
+        });
+    }, 100);
+    
+    console.log(`✅ Harmonisation terminée - Langue: ${currentLang}`);
+    console.log(`🎯 Tilt actif: ${currentLang === 'en' ? 'OUI (anglais)' : 'NON (français)'}`);
+    console.log(`📦 Animations synchronisées, sections rendues visibles`);
+}
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', render);

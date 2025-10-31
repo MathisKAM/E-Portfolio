@@ -1,0 +1,10 @@
+# Large files
+*.mp4
+assets/Elevator_Pitch_Mathis_KAM.mp4
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

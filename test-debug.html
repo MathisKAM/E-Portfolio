@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Space Background</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: #000;
+        }
+        #welcome { 
+            width: 100vw; 
+            height: 100vh; 
+            background: #000000; 
+            position: relative;
+        }
+        .welcome-content {
+            position: relative;
+            z-index: 10;
+            color: white;
+            text-align: center;
+            padding-top: 40vh;
+        }
+    </style>
+</head>
+<body>
+    <section id="welcome">
+        <div class="welcome-content">
+            <h1 style="color: white;">TEST - Si vous voyez des étoiles, ça marche !</h1>
+        </div>
+    </section>
+    
+    <script>
+        console.log('1️⃣ Page chargée');
+        console.log('2️⃣ Section welcome existe:', document.getElementById('welcome'));
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script>
+        console.log('3️⃣ Three.js chargé:', typeof THREE !== 'undefined');
+    </script>
+    
+    <script src="js/space-3d-background.js"></script>
+    
+    <script>
+        setTimeout(() => {
+            const canvas = document.querySelector('canvas');
+            console.log('4️⃣ Canvas trouvé:', canvas);
+            if (canvas) {
+                console.log('   - Position:', canvas.style.position);
+                console.log('   - Z-index:', canvas.style.zIndex);
+                console.log('   - Dimensions:', canvas.width, 'x', canvas.height);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
