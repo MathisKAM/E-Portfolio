@@ -819,7 +819,7 @@ function render() {
                     <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Elevator Pitch video">
                         <button class="video-modal-close" aria-label="Close video">&times;</button>
                         <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/a_z_aIgmufc?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/xekXB96Gb_A?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 `;
