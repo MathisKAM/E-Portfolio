@@ -650,6 +650,9 @@ function render() {
                             window.modernEffects.addGlassmorphism('.course-block, .activity, .project-block');
                             // window.modernEffects.refreshCursorEvents(); // DÉSACTIVÉ - Curseur par défaut utilisé
                         }
+                        
+                        // Réinitialiser le modal elevator pitch après changement de langue
+                        initPitchModal();
                     }, 100);
                 }, 200);
             }
@@ -809,24 +812,30 @@ function render() {
 
 // Initialize elevator pitch modal (separate function for reliability)
 function initPitchModal() {
-    // Use setTimeout to ensure DOM is ready
-    setTimeout(() => {
+    // Use requestAnimationFrame for better timing
+    requestAnimationFrame(() => {
         const pitchBtn = document.getElementById('open-pitch');
         console.log('🎬 Initializing pitch modal, button found:', !!pitchBtn);
         
         if (pitchBtn) {
-            // Remove any existing listeners to avoid duplicates
-            const newBtn = pitchBtn.cloneNode(true);
-            pitchBtn.parentNode.replaceChild(newBtn, pitchBtn);
+            // Check if already has listener
+            if (pitchBtn.dataset.listenerAttached === 'true') {
+                console.log('⚠️ Listener already attached, skipping');
+                return;
+            }
             
-            newBtn.addEventListener('click', (e) => {
+            pitchBtn.dataset.listenerAttached = 'true';
+            
+            pitchBtn.onclick = function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 console.log('🎬 Pitch button clicked!');
                 
-                // If modal already exists, don't recreate
-                if (document.getElementById('video-modal')) {
-                    console.log('⚠️ Modal already exists');
-                    return;
+                // Remove existing modal if any
+                const existingModal = document.getElementById('video-modal');
+                if (existingModal) {
+                    console.log('⚠️ Removing existing modal');
+                    existingModal.remove();
                 }
 
                 const modal = document.createElement('div');
@@ -837,7 +846,7 @@ function initPitchModal() {
                     <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Elevator Pitch video">
                         <button class="video-modal-close" aria-label="Close video">&times;</button>
                         <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/xekXB96Gb_A?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/xekXB96Gb_A?rel=0&modestbranding=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 `;
@@ -853,16 +862,16 @@ function initPitchModal() {
                     document.body.classList.remove('modal-open');
                 };
 
-                closeBtn?.addEventListener('click', closeModal);
-                modal.addEventListener('click', (e) => { 
+                closeBtn.onclick = closeModal;
+                modal.onclick = function(e) { 
                     if (e.target === modal) closeModal(); 
-                });
-            });
+                };
+            };
             console.log('✅ Pitch button click listener attached');
         } else {
             console.error('❌ Pitch button not found in DOM');
         }
-    }, 100);
+    });
 }
 
 // Scroll animations
