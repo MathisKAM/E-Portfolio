@@ -803,13 +803,31 @@ function render() {
         }, 500);
     }, 300);
 
-    // Elevator pitch / YouTube modal binding
-    try {
+    // Elevator pitch / YouTube modal binding - Init immediately
+    initPitchModal();
+}
+
+// Initialize elevator pitch modal (separate function for reliability)
+function initPitchModal() {
+    // Use setTimeout to ensure DOM is ready
+    setTimeout(() => {
         const pitchBtn = document.getElementById('open-pitch');
+        console.log('🎬 Initializing pitch modal, button found:', !!pitchBtn);
+        
         if (pitchBtn) {
-            pitchBtn.addEventListener('click', () => {
+            // Remove any existing listeners to avoid duplicates
+            const newBtn = pitchBtn.cloneNode(true);
+            pitchBtn.parentNode.replaceChild(newBtn, pitchBtn);
+            
+            newBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('🎬 Pitch button clicked!');
+                
                 // If modal already exists, don't recreate
-                if (document.getElementById('video-modal')) return;
+                if (document.getElementById('video-modal')) {
+                    console.log('⚠️ Modal already exists');
+                    return;
+                }
 
                 const modal = document.createElement('div');
                 modal.id = 'video-modal';
@@ -826,22 +844,25 @@ function render() {
 
                 document.body.appendChild(modal);
                 document.body.classList.add('modal-open');
+                console.log('✅ Modal created and added to body');
 
                 const closeBtn = modal.querySelector('.video-modal-close');
                 const closeModal = () => {
-                    // remove modal and restore scrolling
+                    console.log('🚪 Closing modal');
                     modal.remove();
                     document.body.classList.remove('modal-open');
                 };
 
                 closeBtn?.addEventListener('click', closeModal);
-                // Clicking the overlay closes
-                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+                modal.addEventListener('click', (e) => { 
+                    if (e.target === modal) closeModal(); 
+                });
             });
+            console.log('✅ Pitch button click listener attached');
+        } else {
+            console.error('❌ Pitch button not found in DOM');
         }
-    } catch (err) {
-        console.error('Error initializing pitch modal:', err);
-    }
+    }, 100);
 }
 
 // Scroll animations
