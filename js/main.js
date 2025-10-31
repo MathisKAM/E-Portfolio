@@ -180,7 +180,7 @@ const translations = {
             engineering: 'Engineering',
             technical: 'Skills',
             mobility: 'Mobility',
-            sustainability: 'Sustainability',
+            sustainability: 'Engagement',
             activities: 'Activities',
             projects: 'Projects',
             contact: 'Contact'
