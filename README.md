@@ -7,7 +7,7 @@ Portfolio professionnel ultra-moderne pour MATHIS KAM, futur ingénieur en Scien
 ### 🏠 **Header avec Navigation Complète**
 - Nom affiché (MATHIS KAM)
 - Navigation vers toutes les sections
-- Bouton de langue EN/FR (démarre en anglais)
+- Bouton de langue EN/FR
 - Animations au survol sur tous les liens
 
 ### 🎯 **Sections du Portfolio**
