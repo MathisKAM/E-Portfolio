@@ -1,6 +1,6 @@
 # 🎓 Portfolio Website - MATHIS KAM
 
-Portfolio professionnel ultra-moderne pour MATHIS KAM, futur ingénieur en Sciences du Numérique à l'Institut de Toulouse (ENSEEIHT). Site web conçu avec JavaScript vanilla pour une performance optimale.
+Portfolio professionnel, futur ingénieur en Sciences du Numérique à ENSEEIHT. Site web conçu avec JavaScript vanilla pour une performance optimale.
 
 ## ✨ Fonctionnalités
 
